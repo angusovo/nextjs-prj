@@ -25,27 +25,47 @@ $phone-media:550px;
 }
 
 .header {
-    max-width: 80%;
+    width: 100%;
     margin:  auto;
     padding: 12px 10px;
     font-size: 1.5rem;
-
+    position: fixed;
+    z-index: 99;
+    background-color: #fff;
+    display: flex;
+    height: 15vh;
+    
+    .header_logo{
+        margin-left: auto;
+                .product_logo{
+            width: 60px;
+            height: 60px;
+        }
+    }
     .header_img{
         width: 100px;
+        left: 0;
+        right: 0;
         margin: auto;
         cursor: pointer;
+        position: absolute;
+
+
 
     }
-    a{
-        color: #242424;
-        display: inline-block;
-        padding-top: 10px;
-        text-decoration: none;
-
+    
+    .MuiIconButton-root	{
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
     }
+
 }
 
+
 main {
+    position: relative;
+    top: 15vh;
     max-width: 100%;
     background: #fbf8f0;
 
@@ -58,9 +78,9 @@ body {
 
 
 .card {
-    max-width: 400px;
+    // max-width: 400px;
     border: none !important;
-
+    height: 100%;
     a{
         padding: 20px;
         background-color: #fff;
@@ -70,15 +90,29 @@ body {
                 color: #777777;
             }
 
-            h4{
-                color: #e2a703;
-            }
-            .price{
-                text-align: end;
-            }
-        
-
+            
     }
+
+    h4{
+        color: #e2a703;
+    }
+    .price{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        .MuiSvgIcon-root{
+            cursor: pointer;
+            color: #777777;
+        }
+    }
+    .card_container{
+
+        @include phone-width(){
+            width: 100% 
+        }
+    }
+        
 
 
 
@@ -188,7 +222,7 @@ body {
         margin: auto;
         
         @include phone-width(){
-            width: 100%;
+            width: 90%;
 
         }
 
@@ -208,16 +242,14 @@ body {
             width: 100%;
             padding: 1rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 3fr));
             grid-gap: 3rem 3rem;
             margin: auto;
+            
             
             li{
                 list-style: none;
 
-                @include phone-width(){
-                    margin: auto;
-                }
             }
         }
     }
@@ -291,6 +323,10 @@ body {
             padding-bottom: 5px;
             border-bottom: 1px solid#242424;
         }
+
+        @include s-pad-width(){
+            width: 100%;
+        }
         }
 
     button{
@@ -299,5 +335,64 @@ body {
         height: 50px;
         border: 1px solid #e2a703;
         background: #fff;
+    }
+}
+.cart{
+    width: 80%;
+    min-height: 80vh;
+    max-width: 1120px;
+    position: relative;
+    // top: 15vh;
+    margin: auto;
+    
+    .cart_header{
+        color: #777777;
+        padding-top: 20px;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .cart_table {
+        width: 100%;
+        border-collapse:separate;
+        border-spacing:5px 15px;
+
+        th{
+            text-align: center;
+            .MuiSvgIcon-root{
+                margin: 10px;
+            }
+        }
+        .cart_img{
+            margin: auto;
+        }
+
+            img{
+            width: 150px;
+        }
+
+        
+    }
+
+    .cart_footer{
+        padding: 20px;
+        border-top: 1px solid lightgray;
+        
+        h4{
+            text-align: end;
+        }
+    }
+}
+.cart_item{
+    padding: 10px;
+    border: 1px solid #242424;
+    width: 100%;
+    display: flex;
+    margin: 30px auto;
+    border-radius: 10px;
+        
+    .card_item_info{
+        display: flex;
+        flex-direction: column;
+        margin-left:10px;
     }
 }

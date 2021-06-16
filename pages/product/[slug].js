@@ -1,5 +1,4 @@
 import { Link } from "@material-ui/core"
-import { Image } from "react-bootstrap"
 import { sanityClient, urlFor, usePreviewSubscription, PortableTextComponent} from "../../lib/sanity"
 import {useRouter} from "next/router"
 
@@ -21,22 +20,20 @@ const recipesQuery =`*[_type =="product" && slug.current == $slug][0]{
         }
     },
     instruction,
-    likes
 }
 `
 
-export default function OneRecipe({data}){
+export default function OneRecipe({ data }){
     const router = useRouter()
-    const {wines} = data
+    const { wines } = data
 
     if (router.isFallback){
         return <div>Loading...</div>
     }
     return (
         <article className="item">
-                {console.log(wines)}
                 <div className="item_container">
-                    <Image
+                    <img
                     src={urlFor(wines.productImage).url()} 
                     width={"300px"}
                     height={"400px"}

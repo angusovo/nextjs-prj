@@ -99,5 +99,14 @@ export default {
             of: [{ type: "block" }]
 
         },
+        {
+            name: "qty",
+            title: "Qty",
+            type: "number",
+        }
     ],
+    initialValue: {
+        qty: 1,
+    }
+
 }

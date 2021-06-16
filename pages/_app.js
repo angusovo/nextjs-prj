@@ -1,16 +1,20 @@
 import '../styles/globals.css'
-import Link from "next/link"
+
 import Header from "../components/Header"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { StateProvider } from '../Context/StateProvider';
+import reducer, { initialState } from '../Context/Reducer';
+
 
 function MyApp({ Component, pageProps }) {
+
   return( 
-  <>
-    <Header/>
-    <main>
-    <Component {...pageProps} />
-    </main>
-  </>
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <Header/>
+      <main>
+      <Component {...pageProps} />
+      </main>
+    </StateProvider>
   )
 }
 

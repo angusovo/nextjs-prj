@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import { sanityClient, urlFor } from "../lib/sanity"
-import { useNextSanityImage } from 'next-sanity-image'
 import WineCard from '../components/WineCard'
 
 
@@ -11,20 +10,19 @@ const Query = `*[_type=="product"]{
   slug,
   productImage,
   factory,
-  price
+  price,
+  qty
 }`
 
-export default function product({ data: item }) {
-    const displayData= item.map(item=>(
-        <li key={item._id}>
-            <WineCard
-            imgUrl={urlFor(item.productImage).url()}
-            title={item.name}
-            content={item.price}
-            path={`/product/${item.slug.current}`}
-            />
+
+const Product=({data})=> {
+
+    const displayData= data.map(product=>(
+        <li key={product._id}>
+            <WineCard item = { product }/>
         </li>
     ))
+
     return (
         <div className="product">
             <div className="product_header">
@@ -37,7 +35,6 @@ export default function product({ data: item }) {
                 objectFit="cover"
                 quality="100"
                 />
-
             </div>
             <div className="product_list">
 
@@ -62,6 +59,7 @@ export default function product({ data: item }) {
         </div>
     )
 }
+
 export async function getStaticProps() {
     const data = await sanityClient.fetch(Query)
 
@@ -69,3 +67,5 @@ export async function getStaticProps() {
         props: { data }
     }
 }
+
+export default Product
