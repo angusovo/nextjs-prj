@@ -23,16 +23,16 @@ const recipesQuery =`*[_type =="product" && slug.current == $slug][0]{
 }
 `
 
-export default function OneRecipe({ data }){
-    const router = useRouter()
+export default function OneProduct({ data }){
+    if (!data) return <div>Loading...</div>;
+
     const { wines } = data
 
-    if (router.isFallback){
-        return <div>Loading...</div>
-    }
+
     return (
         <article className="item">
                 <div className="item_container">
+                    {console.log(wines.factory)}
                     <img
                     src={urlFor(wines.productImage).url()} 
                     width={"300px"}
