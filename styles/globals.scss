@@ -34,13 +34,37 @@ $phone-media:550px;
     background-color: #fff;
     display: flex;
     height: 15vh;
+    min-height: 150px;
     
     .header_logo{
-        margin-left: auto;
-                .product_logo{
+
+        .product_logo{
             width: 60px;
             height: 60px;
+            right: 5px;
+            position: absolute;
+            cursor: pointer;
+
+
+
         }
+
+        .dot {
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            padding: 5px;
+            background: red; 
+            color: white;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            font: 12px Arial, sans-serif;
+            cursor: pointer;
+
+        }
+
     }
     .header_img{
         width: 100px;
@@ -50,8 +74,35 @@ $phone-media:550px;
         cursor: pointer;
         position: absolute;
 
+    }
+    .header_nav{
+        width: 200px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        font-size: 14px;
+        justify-content: space-between;
 
 
+        p{
+           &:hover{
+            color:#fdd46c ;
+            transition: ease-in 0.2s;
+        }
+        }
+        .p2{
+            border-right: 1px solid #242424 ;
+            padding-right: 10px;
+        }
+
+        .p1{
+            border-right: 1px solid #242424 ;
+            padding-right: 10px;
+        }
     }
     
     .MuiIconButton-root	{
@@ -59,6 +110,7 @@ $phone-media:550px;
         height: 60px;
         font-size: 25px;
     }
+
 
 }
 
@@ -73,24 +125,22 @@ main {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    overflow: scroll;
+
 
 }
 
 
 .card {
-    // max-width: 400px;
     border: none !important;
     height: 100%;
-    a{
-        padding: 20px;
-        background-color: #fff;
-     
-            h5{
-                height:50px;
-                color: #777777;
-            }
 
-            
+    .card_heading{
+        height: 50px ;
+        font: 16px Arial, sans-serif;
+        cursor: pointer;
+        
+        
     }
 
     h4{
@@ -98,13 +148,31 @@ body {
     }
     .price{
         display: flex;
-        justify-content: space-between;
         padding: 10px;
+        justify-content: center;
+        position: relative;
+        top: 10px;
+        border: 1px solid #242424;
+        margin-bottom: 10px;
 
-        .MuiSvgIcon-root{
-            cursor: pointer;
-            color: #777777;
+        .price1{
+            padding: 5px;
+            flex: 0.4;
+            text-align: center;
+            font-size: 12px;
+            margin: 0px;
         }
+        .price2{
+            border-left: 1px solid #242424;
+            padding: 5px;
+            flex: 0.6;
+            text-align: center;
+            font-size: 12px;
+            margin: 0px;
+            cursor: pointer;
+
+        }
+
     }
     .card_container{
 
@@ -342,7 +410,6 @@ body {
     min-height: 80vh;
     max-width: 1120px;
     position: relative;
-    // top: 15vh;
     margin: auto;
     
     .cart_header{
@@ -358,8 +425,10 @@ body {
 
         th{
             text-align: center;
+
             .MuiSvgIcon-root{
                 margin: 10px;
+                cursor: pointer;
             }
         }
         .cart_img{

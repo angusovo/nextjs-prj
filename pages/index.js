@@ -3,7 +3,7 @@ import Link from "next/link"
 import Section from '../components/Section'
 
 
-export default function Home({ data }) {
+export default function Home() {
 
   return (
     <div>

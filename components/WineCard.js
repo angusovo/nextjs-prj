@@ -5,12 +5,11 @@ import {Card} from "react-bootstrap"
 import { actionType } from '../Context/Reducer'
 import { useStateValue } from '../Context/StateProvider'
 import { urlFor } from "../lib/sanity"
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 
 
 const WineCard = ( { item } ) => {
     const [state, dispatch] = useStateValue()
-
+ 
     const addtoCart = (product)=>{
         dispatch({
             type:actionType.ADD_ITEM,
@@ -19,10 +18,8 @@ const WineCard = ( { item } ) => {
     }
 
     return (
-        
-
             <Card>
-            <div className="card_container">
+                <div className="card_container">
                     <Image
                         src={ urlFor(item.productImage).url()}
                         width={"600px"}
@@ -31,18 +28,17 @@ const WineCard = ( { item } ) => {
                         />
                     <Card.Body>
                         <Card.Text >
-                        <Link href={`/product/${item.slug.current}`}>
-                                <h5>{item.name}</h5>
+                            <Link href={`/product/${item.slug.current}`}>
+                                <h5 className="card_heading">{item.name}</h5>
                             </Link>
 
                         </Card.Text>
-                        <div className="price">
-
-                            <h4>${item.price}</h4>                       
-                            <ShoppingCartIcon onClick={() => { addtoCart(item) }} />
-                        </div>
+                            <div className="price">
+                                <p className="price1">HKD${item.price}</p>                       
+                                <p className="price2" onClick={() => { addtoCart(item) }}>ADD TO CART</p>
+                            </div>
                     </Card.Body>
-            </div>
+                </div>
             </Card>
     )
 }
