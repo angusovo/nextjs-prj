@@ -1,7 +1,8 @@
 $pad-media:950px;
 $s-pad-media:750px;
 $phone-media:550px;
-
+$primary-color:#fbf8f0;
+$secondary-color:#e2a703;
 @mixin pad-width(){
     @media screen and (max-width: $pad-media){
                 @content;
@@ -94,14 +95,13 @@ $phone-media:550px;
             transition: ease-in 0.2s;
         }
         }
+
+
         .p2{
             border-right: 1px solid #242424 ;
-            padding-right: 10px;
-        }
+            padding: 0 5px;
+            border-left: 1px solid #242424 ;
 
-        .p1{
-            border-right: 1px solid #242424 ;
-            padding-right: 10px;
         }
     }
     
@@ -119,7 +119,7 @@ main {
     position: relative;
     top: 15vh;
     max-width: 100%;
-    background: #fbf8f0;
+    background: $primary-color;
 
 }
 
@@ -144,7 +144,7 @@ body {
     }
 
     h4{
-        color: #e2a703;
+        color: $secondary-color;
     }
     .price{
         display: flex;
@@ -187,7 +187,7 @@ body {
 }
 
 .heroSection{
-        background: #fbf8f0;
+        background: $primary-color;
 
 }
 .heroSectionIntro{
@@ -268,14 +268,14 @@ body {
 .shop_button{
     width: 200px;
     height: 50px;
-    border: 1px solid #e2a703;
-    background: #fbf8f0;
+    border: 1px solid $secondary-color;
+    background: $primary-color;
     margin: 50px auto;
 }
 
 .product{
 
-    background: #fbf8f0;
+    background: $primary-color;
     .product_header{
                         
         .product_header_img{
@@ -325,7 +325,7 @@ body {
 }
 
 .item{
-    background: #fbf8f0;
+    background: $primary-color;
     padding: 5rem;
     max-width: 1300px;
     margin: auto;
@@ -401,7 +401,7 @@ body {
         margin: 50px 0;
         width: 200px;
         height: 50px;
-        border: 1px solid #e2a703;
+        border: 1px solid $secondary-color;
         background: #fff;
     }
 }
@@ -422,7 +422,10 @@ body {
         width: 100%;
         border-collapse:separate;
         border-spacing:5px 15px;
-
+        
+        @include pad-width(){
+            display: none;
+        }
         th{
             text-align: center;
 
@@ -438,18 +441,31 @@ body {
             img{
             width: 150px;
         }
+        .cart_th_item_name{
+            max-width: 350px;
+        }
 
         
     }
 
     .cart_footer{
         padding: 20px;
-        border-top: 1px solid lightgray;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         h4{
             text-align: end;
         }
+
+        .check_out_button{
+            width: 120px;
+            border: none;
+            padding: 5px;
+            background-color:$secondary-color;
+            border-radius: 5px;
+        }
     }
+
 }
 .cart_item{
     padding: 10px;
@@ -463,5 +479,70 @@ body {
         display: flex;
         flex-direction: column;
         margin-left:10px;
+    }
+}
+
+.cart_mob {
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+    display: none;
+    
+    @include pad-width(){
+        display: block;
+
+    }
+
+    li {
+
+    }
+    .cart_item_mob{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 1px solid lightgray;
+
+        .cart_item_info{
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        .cart_item_price{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .cart_item_qty{
+                margin: 15px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .cart_item_remove_mob{
+                width:100px ;
+                margin: 10px 0;
+                background-color: rgb(226, 86, 86);
+                border: none;
+                color: #fff;
+            }
+        }
+        .cart_item_img{
+            flex: 0.5;
+            .cart_item_total{
+                position: relative;
+                top: 15px;
+                
+
+            }
+            img{
+                width: 100%;
+                max-width: 300px;
+                min-width: 100px;
+
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@ const Header = () => {
                     <p className="p1">HOME</p>
                 </Link>
                 <Link href="/product">
-                    <p className="p2">All PRODUCTS</p>
+                    <p className="p2">ALL PRODUCTS</p>
                 </Link>
                 <Link href="/cart">
                     <p>CART</p>

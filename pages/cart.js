@@ -53,7 +53,7 @@ export default function Cart() {
                         <th className="cart_img">
                             <img src={urlFor(item.productImage).url()} alt={item.name} />
                         </th>
-                        <th>{item.name}</th>
+                        <th className="cart_th_item_name">{item.name}</th>
                         <th>{item.price}</th>
                         <th>
                             <IndeterminateCheckBoxIcon onClick={() => decreItem(item)}/>
@@ -65,9 +65,46 @@ export default function Cart() {
                     </tr>
                 ))}
             </table>
+
+                <ul className="cart_mob">
+                {state.map(item=>(
+                    <li>
+                        <div className="cart_item_mob">
+                            <div className="cart_item_info">
+                                <p>{item.name}</p>
+                                <div className="cart_item_price">
+                                    <p>HKD${item.price}</p>
+                                    <div className="cart_item_qty">
+            
+                                        <IndeterminateCheckBoxIcon onClick={() => decreItem(item)} />
+                                        {item.quantity}
+                                        <AddBoxIcon onClick={() => addtoCart(item)} />
+
+
+                                    </div>
+                                    <button onClick={() => removeItem(item)} className="cart_item_remove_mob">
+                                        REMOVE
+                                    </button>
+
+                                </div>
+                                <h6 className="cart_item_total">TOTAL:$ {item.price * item.quantity}</h6>
+
+                            </div>
+                            <div className="cart_item_img">
+                                <img src={urlFor(item.productImage).url()} alt={item.name} />
+
+                            </div>
+                        </div>
+
+                    </li>
+                )
+                    
+                )}
+                </ul>
             
             <div className="cart_footer">
                 <h4>Total:$ {totalPrice}</h4>
+                <button className="check_out_button">CHECK OUT</button>
             </div>
             
         </div>
