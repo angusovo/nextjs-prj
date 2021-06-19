@@ -34,19 +34,22 @@ $secondary-color:#e2a703;
     z-index: 99;
     background-color: #fff;
     display: flex;
-    height: 15vh;
-    min-height: 150px;
+    height: 150px;
+    
+
+    @include pad-width(){
+        height: 125px;
+        min-height: 0;
+    }
     
     .header_logo{
 
         .product_logo{
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             right: 5px;
             position: absolute;
             cursor: pointer;
-
-
 
         }
 
@@ -75,6 +78,15 @@ $secondary-color:#e2a703;
         cursor: pointer;
         position: absolute;
 
+        @include pad-width(){
+            width: 70px;
+        }
+        img{
+            width: 100%;
+            
+
+
+        }
     }
     .header_nav{
         width: 200px;
@@ -87,7 +99,7 @@ $secondary-color:#e2a703;
         display: flex;
         font-size: 14px;
         justify-content: space-between;
-
+        
 
         p{
            &:hover{
@@ -99,17 +111,12 @@ $secondary-color:#e2a703;
 
         .p2{
             border-right: 1px solid #242424 ;
-            padding: 0 5px;
+            padding: 0 7px;
             border-left: 1px solid #242424 ;
 
         }
     }
     
-    .MuiIconButton-root	{
-        width: 60px;
-        height: 60px;
-        font-size: 25px;
-    }
 
 
 }
@@ -117,9 +124,13 @@ $secondary-color:#e2a703;
 
 main {
     position: relative;
-    top: 15vh;
+    top: 150px;
     max-width: 100%;
     background: $primary-color;
+    
+    @include pad-width(){
+        top: 125px;
+    }
 
 }
 
@@ -199,7 +210,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-            @include phone-width{
+            @include pad-width{
                 height: 40vh;
             }        
         h2{
@@ -216,6 +227,9 @@ body {
             @include pad-width{
                 line-height: 30px;
             }
+            @include phone-width(){
+                line-height: 25px;
+            }
             @include s-pad-width{
                 width: 90%;
             }
@@ -224,13 +238,17 @@ body {
     }
 
 }
+.footer{
 .shop{
-    height: 40vh;
     display: flex;
     background: #fff;
     flex-direction: column;
     align-items: center;
+    padding-top: 10vh;
 
+    @include s-pad-width(){
+        height: auto;
+    }
 
     .shop_info{
         width: 50%;
@@ -254,24 +272,27 @@ body {
     }
 }
 
-.footer{
+.footer_button{
     display: flex;
     background-color: #fff;
-    position: relative;
     .shop_button_link{
         margin: auto;
 
 
     }
-}
 
-.shop_button{
-    width: 200px;
+    button{
+            width: 200px;
     height: 50px;
     border: 1px solid $secondary-color;
     background: $primary-color;
     margin: 50px auto;
+    }
 }
+
+
+}
+
 
 .product{
 
@@ -407,11 +428,14 @@ body {
 }
 .cart{
     width: 80%;
-    min-height: 80vh;
+    min-height: 60vh;
     max-width: 1120px;
     position: relative;
     margin: auto;
     
+    @include pad-width(){
+        min-height: 80vh;
+    }
     .cart_header{
         color: #777777;
         padding-top: 20px;
@@ -444,10 +468,29 @@ body {
         .cart_th_item_name{
             max-width: 350px;
         }
-
-        
+    
     }
 
+    .empty_cart_mob{
+        display: none;
+
+        @include pad-width(){
+            height: 300px;
+            display: block;
+            text-align: center;
+            padding: 2rem;
+        }
+    }
+
+    .empty_cart{
+            height: 300px;
+            display: block;
+            text-align: center;
+            padding: 2rem;
+        @include pad-width(){
+            display: none;
+        }
+    }
     .cart_footer{
         padding: 20px;
         display: flex;
@@ -493,9 +536,6 @@ body {
 
     }
 
-    li {
-
-    }
     .cart_item_mob{
         display: flex;
         justify-content: space-between;
@@ -540,7 +580,7 @@ body {
             img{
                 width: 100%;
                 max-width: 300px;
-                min-width: 100px;
+                min-width: 130px;
 
             }
         }

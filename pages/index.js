@@ -36,13 +36,13 @@ export default function Home() {
       />
       <Section
       imgUrl={"/hero4.jpg"}
-      heading="令人著迷的歷史悠久產品"
-      content="  在老字號的古色古香的商店裡，排列著各種各樣的產品，例如“Masuhei”、燒酒和利口酒等。
-        以花札為主題的複古可愛標籤的“月瀨梅原酒”等梅酒種類繁多，在店內品嚐時，可以感受到時光倒流般的懷舊氛圍。
-        此外，這款月瀨梅原清酒口味成熟，在2015年全國梅酒博覽會上獲得金獎。"
+      heading="令人著迷的悠久產品"
+      content="在老字號的古色古香的商店裡，排列著各種各樣的產品，例如燒酒和利口酒等。
+        以花札為主題的複古可愛標籤的“月瀨梅原酒”等梅酒種類繁多，在店內品嚐時，可以感受到時光倒流般的懷舊氛圍。"
       extraImage={"/hero5.jpg"}
       />
-      <div className="shop">
+      
+      {/* <div className="shop">
         <div className="shop_info">
           <div className="shop_image">
             <img
@@ -63,7 +63,7 @@ export default function Home() {
         <Link href="/product" className="shop_button_link">
           <button className="shop_button">瀏覽商品</button>
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

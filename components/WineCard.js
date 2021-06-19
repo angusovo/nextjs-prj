@@ -27,12 +27,10 @@ const WineCard = ( { item } ) => {
                         layout="responsive"
                         />
                     <Card.Body>
-                        <Card.Text >
                             <Link href={`/product/${item.slug.current}`}>
-                                <h5 className="card_heading">{item.name}</h5>
+                                <p className="card_heading">{item.name}</p>
                             </Link>
 
-                        </Card.Text>
                             <div className="price">
                                 <p className="price1">HKD${item.price}</p>                       
                                 <p className="price2" onClick={() => { addtoCart(item) }}>ADD TO CART</p>

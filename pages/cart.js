@@ -39,6 +39,11 @@ export default function Cart() {
             <div className="cart_header">
                 <h3>Cart</h3>
             </div>
+
+            {state.length==0? 
+            <div className="empty_cart">
+                    Empty Cart! Check our <a href="/product">Products!</a>
+            </div>:
             <table className="cart_table">
                 <tr>
                     <th>Product</th>
@@ -48,8 +53,8 @@ export default function Cart() {
                     <th>Total</th>
                 </tr>
 
-                {state.map(item=>(
-                    <tr>
+                {state.map((item, key)=>(
+                    <tr key={key}>
                         <th className="cart_img">
                             <img src={urlFor(item.productImage).url()} alt={item.name} />
                         </th>
@@ -65,10 +70,14 @@ export default function Cart() {
                     </tr>
                 ))}
             </table>
-
+            }
+            {state.length == 0 ?
+                <div className="empty_cart_mob">
+                    Empty Cart! Check our <a href="/product">Products!</a>
+                </div> :
                 <ul className="cart_mob">
-                {state.map(item=>(
-                    <li>
+                {state.map((item, key)=>(
+                    <li key={key}>
                         <div className="cart_item_mob">
                             <div className="cart_item_info">
                                 <p>{item.name}</p>
@@ -101,7 +110,7 @@ export default function Cart() {
                     
                 )}
                 </ul>
-            
+            }
             <div className="cart_footer">
                 <h4>Total:$ {totalPrice}</h4>
                 <button className="check_out_button">CHECK OUT</button>

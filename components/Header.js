@@ -13,11 +13,9 @@ const Header = () => {
         <nav className="header">
             <div className="header_img">
                <Link href="/">
-                   <Image
+                   <img
                    src="/logo.png"
-                   height={100}
-                   width={100}
-                   layout="fixed"
+                   alt="shop logo"
                    
                    />
                </Link>
@@ -38,7 +36,7 @@ const Header = () => {
                 <div className="">
                     <img className="product_logo" src="/product_logo.png" alt="product"/>
 
-                    {state.length==0?null:<div class="dot">{cartNumber}</div>}
+                    {state.length==0?null:<div className="dot">{cartNumber}</div>}
 
 
                 </div>

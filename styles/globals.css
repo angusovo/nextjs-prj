@@ -16,13 +16,19 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 15vh;
-  min-height: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 950px) {
+  .header {
+    height: 125px;
+    min-height: 0;
+  }
 }
 
 .header .header_logo .product_logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   right: 5px;
   position: absolute;
   cursor: pointer;
@@ -52,6 +58,16 @@
   position: absolute;
 }
 
+@media screen and (max-width: 950px) {
+  .header .header_img {
+    width: 70px;
+  }
+}
+
+.header .header_img img {
+  width: 100%;
+}
+
 .header .header_nav {
   width: 200px;
   left: 0;
@@ -77,21 +93,21 @@
 
 .header .header_nav .p2 {
   border-right: 1px solid #242424;
-  padding: 0 5px;
+  padding: 0 7px;
   border-left: 1px solid #242424;
-}
-
-.header .MuiIconButton-root {
-  width: 60px;
-  height: 60px;
-  font-size: 25px;
 }
 
 main {
   position: relative;
-  top: 15vh;
+  top: 150px;
   max-width: 100%;
   background: #fbf8f0;
+}
+
+@media screen and (max-width: 950px) {
+  main {
+    top: 125px;
+  }
 }
 
 body {
@@ -178,7 +194,7 @@ body {
           justify-content: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 950px) {
   .heroSectionIntro .heroSection_text {
     height: 40vh;
   }
@@ -205,14 +221,19 @@ body {
   }
 }
 
+@media screen and (max-width: 550px) {
+  .heroSectionIntro .heroSection_text p {
+    line-height: 25px;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .heroSectionIntro .heroSection_text p {
     width: 90%;
   }
 }
 
-.shop {
-  height: 40vh;
+.footer .shop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,9 +245,16 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 10vh;
 }
 
-.shop .shop_info {
+@media screen and (max-width: 750px) {
+  .footer .shop {
+    height: auto;
+  }
+}
+
+.footer .shop .shop_info {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -245,13 +273,13 @@ body {
 }
 
 @media screen and (max-width: 750px) {
-  .shop .shop_info {
+  .footer .shop .shop_info {
     width: 80%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .shop .shop_info {
+  .footer .shop .shop_info {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -259,19 +287,18 @@ body {
   }
 }
 
-.footer {
+.footer .footer_button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #fff;
-  position: relative;
 }
 
-.footer .shop_button_link {
+.footer .footer_button .shop_button_link {
   margin: auto;
 }
 
-.shop_button {
+.footer .footer_button button {
   width: 200px;
   height: 50px;
   border: 1px solid #e2a703;
@@ -459,10 +486,16 @@ body {
 
 .cart {
   width: 80%;
-  min-height: 80vh;
+  min-height: 60vh;
   max-width: 1120px;
   position: relative;
   margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .cart {
+    min-height: 80vh;
+  }
 }
 
 .cart .cart_header {
@@ -502,6 +535,32 @@ body {
 
 .cart .cart_table .cart_th_item_name {
   max-width: 350px;
+}
+
+.cart .empty_cart_mob {
+  display: none;
+}
+
+@media screen and (max-width: 950px) {
+  .cart .empty_cart_mob {
+    height: 300px;
+    display: block;
+    text-align: center;
+    padding: 2rem;
+  }
+}
+
+.cart .empty_cart {
+  height: 300px;
+  display: block;
+  text-align: center;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 950px) {
+  .cart .empty_cart {
+    display: none;
+  }
 }
 
 .cart .cart_footer {
@@ -638,6 +697,6 @@ body {
 .cart_mob .cart_item_mob .cart_item_img img {
   width: 100%;
   max-width: 300px;
-  min-width: 100px;
+  min-width: 130px;
 }
 /*# sourceMappingURL=globals.css.map */
